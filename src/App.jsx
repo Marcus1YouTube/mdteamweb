@@ -23,7 +23,7 @@ function App() {
   // step: 3,
   // stepdate: new Date("2023-06-13T18:46:30"),
   // ytlink: ""
-  const [ldata, setLData] = React.useState({});
+  let [ldata, setLData] = React.useState({});
 
   const items = [
     "Felvétel",
@@ -56,7 +56,8 @@ function App() {
     <>
       <TopBar />
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Card variant="outlined" sx={{ width: "95%", marginTop: "20px" }}>
+        { ldata == undefined ? <Typography variant="h1" >Nincsen adat az adatbázisban vagy hiba történt.</Typography> : (
+          <Card variant="outlined" sx={{ width: "95%", marginTop: "20px" }}>
           <CardContent>
             <Grid container spacing={2} columns={16}>
               <Grid item xs={12} sm={8} md={8} lg={8}>
@@ -85,6 +86,8 @@ function App() {
             </Grid>
           </CardContent>
         </Card>
+        ) }
+        
       </Box>
     </>
   );
