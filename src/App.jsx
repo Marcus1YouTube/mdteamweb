@@ -56,7 +56,7 @@ function App() {
     <>
       <TopBar />
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        { ldata == undefined ? <Typography variant="h1" >Nincsen adat az adatbázisban vagy hiba történt.</Typography> : (
+        { ldata == undefined ? <Typography variant="h2" >Nincsen adat az adatbázisban vagy hiba történt.</Typography> : (
           <Card variant="outlined" sx={{ width: "95%", marginTop: "20px" }}>
           <CardContent>
             <Grid container spacing={2} columns={16}>
@@ -66,6 +66,7 @@ function App() {
                 <Typography variant="h3" sx={{ marginTop: "10px" }}>
                   {ldata.title}
                 </Typography>
+                {!(ldata.ytlink == "") ? <a href={ldata.ytlink}>YouTube link</a> : <></>}
               </Grid>
               <Grid item xs={12} sm={8} md={8} lg={8}>
                 <Stepper activeStep={ldata.step} orientation="vertical">
